@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da memoria JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Jogo da Memória</h1>
+            <div class="stats">
+                <span id="attempts-label">Tentativas: <span id="attempts">0</span></span>
+                <span id="timer-label">Tempo: <span id="timer">0</span>s</span>
+            </div>
+            <button id="restart-btn">Reiniciar jogo</button>
+        </header>
+
+        <div class="game-board" id="game-board">
+            <!-- Cartas do jogo serão geradas aqui -->
+        </div>
+        <div class="game-over" id="game-over">
+            <h2>Fim de Jogo!</h2>
+            <p>Você ganhou em <span id="final-time">0</span> segundos</p>
+            <p>com <span id="final-attempts">0</span> tentativas!</p>
+            <button id="play-again-btn">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
