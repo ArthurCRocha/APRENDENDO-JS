@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Gerador de Senhas Seguras</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gerador de Senhas</h1>
+            <p>Utilize nosso gerador online para criar senhas seguras e aleatórias.</p>
+        </header>
+        
+        <main>
+            <div class="password-box">
+                <input type="text" name="senha" id="senha" title="Senha gerada" placeholder="Sua senha aparecerá aqui" readonly/>
+                <button id="copiarSenha" class="btn-copy" title="Copiar senha">
+                    <span class="tooltip">Copiado!</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 1H4C2.9 1 2 1.9 2 3v14h2V3h12V1zm3 4H8C6.9 5 6 5.9 6 7v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="controls">
+                <div class="slider-container">
+                    <label for="tamanho">Tamanho da senha: <span id="tamanhoValor">16</span></label>
+                    <input type="range" name="tamanho" id="tamanho" min="4" max="64" value="16" title="Ajuste o tamanho da senha">
+                </div>
+                
+                <button id="gerarSenha" class="btn-primary">Gerar senha</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Desenvolvido com ❤️ para sua segurança digital</p>
+        </footer>
+    </div>
+
+    <script>
+        const imputEL = document.querySelector("#senha");
+        const tamanhoValorEL = document.querySelector("#tamanhoValor");
+        let senhaTamanho = 16; // Tamanho padrão da senha
+
+        function gerarSenha() {
+            const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";  
+            let senha = "";
+            for(let i = 0; i < senhaTamanho; i++){
+                const randonNumber = Math.floor(Math.random() * chars.length);
+                senha += chars.substring(randonNumber, randonNumber + 1);
+            }
+            imputEL.value = senha;
+        }
+
+        function copiarSenha(){
+            navigator.clipboard.writeText(imputEL.value);
+            const tooltip = document.querySelector(".tooltip");
+            tooltip.classList.add("show");
+            setTimeout(() => {
+                tooltip.classList.remove("show");
+            }, 2000);
+        }
+
+        // Adiciona o evento de clique ao botão de gerar senha
+        const gerarButtonEL = document.querySelector("#gerarSenha");
+        gerarButtonEL.addEventListener('click', gerarSenha);
+
+        // Adiciona o evento de clique ao botão de copiar senha
+        const copiarButtonEL = document.querySelector("#copiarSenha");
+        copiarButtonEL.addEventListener('click', copiarSenha);
+
+        // Atualiza o valor do tamanho da senha
+        const senhaTamanhoEL = document.querySelector("#tamanho");
+        
+        senhaTamanhoEL.addEventListener("input", function(){
+            senhaTamanho = senhaTamanhoEL.value;
+            tamanhoValorEL.textContent = senhaTamanho;
+            gerarSenha();
+        });
+       
+        gerarSenha();  
+    </script>
+</body>
+</html>
