@@ -11,16 +11,26 @@
     <script src="https://kit.fontawesome.com/a25c5332df.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <canvas id="bg-canvas"></canvas>
+    
     <header class="header">
         <div class="container">
             <div class="profile">
                 <div class="profile-content">
                     <h1>Arthur Candian Rocha</h1>
-                    <h2>Estudante de Ciências da Computação</h2>
+                    <h2>Desenvolvedor Web & Estudante de Ciências da Computação</h2>
                     <div class="contact">
                         <a href="mailto:arthurcandian@gmail.com"><i class="fas fa-envelope"></i> arthurcandian@gmail.com</a>
                         <a href="tel:+5532984930125"><i class="fas fa-phone"></i> (32) 98493-0125</a>
                         <a href="https://github.com/ArthurCRocha" target="_blank"><i class="fab fa-github"></i> github.com/ArthurCRocha</a>
+                        <a href="https://www.linkedin.com/in/arthur-candian/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/arthur-candian</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +41,7 @@
         <div class="container">
             <h2 class="section-title">Resumo Pessoal</h2>
             <div class="about-content">
-                <p>Estudante de Ciência da Computação com experiência em desenvolvimento web e design gráfico. Busco integrar conhecimentos técnicos e criativos para contribuir em projetos inovadores.</p>
+                <p>Desenvolvedor Web com experiência em JavaScript e TypeScript, e estudante de Ciência da Computação apaixonado por criar soluções tecnológicas eficientes e intuitivas. Combino conhecimentos técnicos em programação com habilidades em design gráfico para desenvolver interfaces atraentes e funcionais. Busco constantemente aprender novas tecnologias e aplicar esse conhecimento em projetos inovadores.</p>
             </div>
         </div>
     </section>
@@ -43,19 +53,28 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
+                        <h3>Desenvolvedor Web</h3>
+                        <p class="timeline-place">Metryx - Março/2025 - Presente</p>
+                        <ul>
+                            <li>Desenvolvimento e manutenção de aplicações web utilizando Angular 18 e Groovy Grails</li>
+                            <li>Implementação de novas funcionalidades seguindo metodologias ágeis</li>
+                            <li>Otimização de desempenho e experiência do usuário</li>
+                            <li>Integração com APIs e sistemas de terceiros</li>
+                            <li>Desenvolvimento de testes automatizados e garantia de qualidade</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
                         <h3>Estágiario de Desenvolvimento Web</h3>
-                        <p class="timeline-place">Metryx - Novembro/2024 - Fevereiro/2025</p>
+                        <p class="timeline-place">Metryx - Novembro/2023 - Fevereiro/2025</p>
                         <ul>
                             <li>Implementação de novas funcionalidades no sistema web.</li>
                             <li>Uso de frameworks e bibliotecas como Angular 18 e Groovy Grails.</li>
                             <li>Participação em reuniões de planejamento e revisão de código.</li>
                             <li>Colaboração com outros desenvolvedores e departamentos para garantir a entrega de projetos dentro do prazo.</li>
                             <li>Identificação e correção de bugs no sistema.</li>
-                            <li>Melhoria da performance e usabilidade do sistema.</li>
-                            <li>Participação em sprints e uso de metodologias ágeis como Scrum.</li>
-                            <li>Uso de ferramentas de gestão de projetos como Jira.</li>
-                            <li>Criação e manutenção de documentação técnica para o sistema.</li>
-                            <li>Realização de testes unitários e de integração.</li>
                         </ul>
                     </div>
                 </div>
@@ -76,7 +95,7 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Estágiario em Comunicação e Eventos</h3>
-                        <p class="timeline-place">Instituto Federal Sudeste de Minas Gerais - Campus Rio Pomba - 01/02/2023 - 12/03/2025</p>
+                        <p class="timeline-place">Instituto Federal Sudeste de Minas Gerais - Campus Rio Pomba - 01/02/2023 - 12/03/2024</p>
                         <ul>
                             <li>Produção de Conteúdo Visual: Criação diária de cardápios e materiais gráficos para redes sociais.</li>
                             <li>Design Gráfico: Desenvolvimento de artes para eventos comemorativos, campanhas institucionais e divulgação acadêmica.</li>
@@ -94,7 +113,7 @@
             <div class="education-item">
                 <h3>Graduação em Ciência da Computação</h3>
                 <p>Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas Gerais (IF Sudeste) - Campus Rio Pomba</p>
-                <p>2020 - Presente</p>
+                <p>2020 - 2025 (Previsão)</p>
             </div>
         </div>
     </section>
@@ -106,25 +125,26 @@
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Sistema de Coleta de Lixo</h3>
-                        <p class="project-type">Projeto Universitário</p>
-                        <p>Sistema feito em Java para fins didáticos da matéria Laboratório e Programação de Sistemas.</p>
-                        <p>Sistema para gerenciamento de uma empresa ou ONG de coleta de lixo urbana.</p>
+                        <h3>Portal de Gestão Empresarial</h3>
+                        <p class="project-type">Projeto Profissional</p>
+                        <p>Desenvolvimento de um dashboard para visualização de métricas de desempenho utilizando Angular e APIs RESTful.</p>
+                        
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-content">
                         <h3>Sistema de Gerenciamento Financeiro</h3>
-                        <p class="project-type">Projeto Universitário - Em Desenvolvimento</p>
-                        <p>Sistema Projetado para uma empresa de terraplanagem a fim de facilitar o gerenciamento financeiro da empresa.</p>
+                        <p class="project-type">Projeto Comercial</p>
+                        <p>Sistema completo para uma empresa de terraplanagem com controle de orçamentos, gestão de clientes e relatórios financeiros.</p>
+                        
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-content">
                         <h3>Chatbot WhatsApp</h3>
-                        <p>Criação de um assistente virtual para o whatsapp com o intuito de automatizar e melhorar a eficiência de atendimentos online.</p>
+                        <p>Assistente virtual para WhatsApp que automatiza atendimentos e coleta dados de clientes para análise.</p>
                     </div>
                 </div>
                 
@@ -134,7 +154,6 @@
                         <p>Aplicação web para gerar senhas seguras e aleatórias com interface intuitiva.</p>
                         <div class="project-links">
                             <a href="../gerador de senhas/index.html" target="_blank" class="btn-project">Ver Demo</a>
-                            <a href="https://github.com/ArthurCRocha/geradorSenhas" target="_blank" class="btn-project">Ver Código</a>
                         </div>
                     </div>
                 </div>
@@ -149,32 +168,40 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Programação</h3>
                     <ul>
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>Java</li>
-                        <li>C++</li>
+                        <li>JavaScript/TypeScript</li>
                         <li>Angular 18</li>
+                        <li>Node.js</li>
+                        <li>Java</li>
                         <li>Groovy Grails</li>
+                        <li>C++</li>
+                        <li>HTML5/CSS3</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Banco de Dados</h3>
+                    <ul>
+                        <li>Firebase</li>
+                        <li>MySQL</li>
+
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-paint-brush"></i> Design Gráfico</h3>
                     <ul>
                         <li>Canva</li>
+                        <li>Figma</li>
                         <li>Diagramação de documentos</li>
-                        <li>Edição de mídia</li>
-                        <li>Criação de flyers e cards</li>
+                        <li>UI/UX Design</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-tools"></i> Ferramentas</h3>
                     <ul>
-                        <li>Git</li>
-                        <li>Intellij</li>
-                        <li>Atlassian</li>
-                        <li>Jira</li>
+                        <li>Git/GitHub</li>
+                        <li>IntelliJ IDEA</li>
+                        <li>Visual Studio Code</li>
+                        <li>Jira/Confluence</li>
                         <li>Bitbucket</li>
-                        <li>Visual Studio</li>
                     </ul>
                 </div>
             </div>
@@ -183,12 +210,18 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 Arthur Candian Rocha. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Arthur Candian Rocha. Todos os direitos reservados.</p>
             <div class="social-links">
                 <a href="https://github.com/ArthurCRocha" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/arthur-candian/" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
+
+    <!-- Add Three.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    
+    <!-- Add our custom script -->
+    <script src="script.js"></script>
 </body>
 </html>

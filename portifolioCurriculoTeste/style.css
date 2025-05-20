@@ -13,6 +13,20 @@
     --transition: all 0.3s ease;
 }
 
+/* Dark mode variables */
+.dark-theme {
+    --primary-color: #6d8dff;
+    --primary-dark: #5a76dd;
+    --secondary-color: #34d399;
+    --bg-color: #111827;
+    --bg-light: #1f2937;
+    --text-color: #f3f4f6;
+    --text-light: #d1d5db;
+    --text-lighter: #9ca3af;
+    --border-color: #374151;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -24,6 +38,48 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#theme-toggle-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+#theme-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+.dark-theme .theme-toggle .fa-moon {
+    display: none;
+}
+
+.dark-theme .theme-toggle .fa-sun {
+    display: block;
 }
 
 .container {
@@ -52,6 +108,8 @@ ul {
     background-color: var(--primary-color);
     color: white;
     padding: 80px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .profile {
@@ -102,10 +160,16 @@ ul {
 /* Section Styles */
 .section {
     padding: 80px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .section:nth-child(even) {
     background-color: var(--bg-light);
+}
+
+.section:nth-child(odd) {
+    background-color: var(--bg-color);
 }
 
 .section-title {
@@ -169,15 +233,16 @@ ul {
     height: 20px;
     border-radius: 50%;
     background-color: var(--primary-color);
-    border: 4px solid white;
+    border: 4px solid var(--bg-light);
     box-shadow: var(--shadow);
 }
 
 .timeline-content {
-    background-color: white;
+    background-color: var(--bg-light);
     padding: 30px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-content h3 {
@@ -218,10 +283,11 @@ ul {
 
 /* Education Section */
 .education-item {
-    background-color: white;
+    background-color: var(--bg-light);
     padding: 30px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .education-item h3 {
@@ -242,11 +308,11 @@ ul {
 }
 
 .project-card {
-    background-color: white;
+    background-color: var(--bg-light);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: var(--transition);
+    transition: var(--transition), background-color 0.3s ease;
     height: 100%;
 }
 
@@ -300,10 +366,11 @@ ul {
 }
 
 .skill-category {
-    background-color: white;
+    background-color: var(--bg-light);
     padding: 25px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-category h3 {
@@ -331,6 +398,8 @@ ul {
     color: white;
     padding: 30px 0;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .footer .container {
@@ -354,6 +423,17 @@ ul {
 .social-links a:hover {
     color: rgba(255, 255, 255, 0.8);
     transform: translateY(-3px);
+}
+
+/* Three.js Canvas Styles */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* Responsive Design */
@@ -389,6 +469,17 @@ ul {
     .contact {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+    }
+    
+    #theme-toggle-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
     }
 }
 
