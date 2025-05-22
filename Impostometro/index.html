@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impostômetro Brasileiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Impostômetro Brasileiro</h1>
+            <p>Calcule quanto você já pagou em impostos</p>
+        </header>
+
+        <main>
+            <section class="input-panel">
+                <h2>Seus Dados</h2>
+                
+                <div class="form-group">
+                    <label for="salario">Salário Mensal (R$):</label>
+                    <input type="number" id="salario" placeholder="Ex: 3500">
+                </div>
+                
+                <div class="form-group">
+                    <label for="gastosProdutos">Gastos Mensais com Produtos (R$):</label>
+                    <input type="number" id="gastosProdutos" placeholder="Ex: 1500">
+                </div>
+                
+                <div class="form-group">
+                    <label for="gastosServicos">Gastos Mensais com Serviços (R$):</label>
+                    <input type="number" id="gastosServicos" placeholder="Ex: 800">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="valorImoveis">Valor total de Imóveis (R$):</label>
+                        <input type="number" id="valorImoveis" placeholder="Ex: 300000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="valorVeiculos">Valor total de Veículos (R$):</label>
+                        <input type="number" id="valorVeiculos" placeholder="Ex: 50000">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="periodo">Período de cálculo (meses):</label>
+                    <input type="number" id="periodo" min="1" value="12">
+                </div>
+                
+                <button id="calcularBtn" class="btn-primary">Calcular Impostos</button>
+                <button id="resetBtn" class="btn-secondary">Limpar</button>
+            </section>
+
+            <section class="result-panel">
+                <h2>Resultado</h2>
+                <div id="resultadoContainer" class="result-container">
+                    <div class="total-box">
+                        <h3>Total de Impostos Pagos</h3>
+                        <div class="valor-total">R$ <span id="valorTotalImpostos">0,00</span></div>
+                        <p>Nos últimos <span id="periodoTexto">12</span> meses</p>
+                    </div>
+                    
+                    <div class="impostos-detalhados">
+                        <h3>Detalhamento de Impostos</h3>
+                        <ul id="listaImpostos">
+                            <li>Imposto de Renda: <span id="valorIR">R$ 0,00</span></li>
+                            <li>INSS: <span id="valorINSS">R$ 0,00</span></li>
+                            <li>ICMS (produtos): <span id="valorICMS">R$ 0,00</span></li>
+                            <li>ISS (serviços): <span id="valorISS">R$ 0,00</span></li>
+                            <li>IPTU: <span id="valorIPTU">R$ 0,00</span></li>
+                            <li>IPVA: <span id="valorIPVA">R$ 0,00</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grafico-container">
+                        <h3>Distribuição de Impostos</h3>
+                        <div id="graficoImpostos" class="grafico">
+                            <!-- O gráfico será gerado pelo JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Este é apenas um cálculo estimado com base em alíquotas médias. Consulte um contador para valores precisos.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
