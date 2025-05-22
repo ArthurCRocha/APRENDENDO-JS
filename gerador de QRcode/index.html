@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Gerador de QR Code</title>
+    <!-- Biblioteca para gerar QR Codes -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gerador de QR Code</h1>
+            <p>Crie QR Codes personalizados de forma rápida e fácil</p>
+        </header>
+        
+        <main>
+            <div class="input-section">
+                <div class="form-group">
+                    <label for="qr-content">Conteúdo do QR Code:</label>
+                    <input type="text" id="qr-content" placeholder="Digite texto, URL ou informações para o QR Code" value="https://github.com/ArthurCRocha">
+                </div>
+                
+                <div class="options-grid">
+                    <div class="form-group">
+                        <label for="qr-size">Tamanho:</label>
+                        <select id="qr-size">
+                            <option value="4">Pequeno</option>
+                            <option value="6" selected>Médio</option>
+                            <option value="8">Grande</option>
+                            <option value="10">Extra Grande</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qr-color">Cor do QR Code:</label>
+                        <input type="color" id="qr-color" value="#000000">
+                    </div>
+                </div>
+                
+                <button id="generate-btn" class="btn-primary">Gerar QR Code</button>
+            </div>
+            
+            <div class="qr-preview">
+                <div class="qr-container" id="qr-container">
+                    <!-- O QR Code será inserido aqui via JavaScript -->
+                </div>
+                
+                <div class="qr-actions">
+                    <button id="download-btn" class="btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                        Baixar QR Code
+                    </button>
+                </div>
+            </div>
+        </main>
+        
+        <div id="notification" class="notification">QR Code baixado com sucesso!</div>
+        
+        <footer>
+            <p>Desenvolvido com ❤️ para facilitar sua comunicação digital</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
