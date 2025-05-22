@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de PDF</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gerador de PDF</h1>
+            <p>Personalize e gere documentos em PDF facilmente</p>
+        </header>
+
+        <main>
+            <section class="options-panel">
+                <h2>Opções de Documento</h2>
+                
+                <div class="form-group">
+                    <label for="documentTitle">Título do Documento:</label>
+                    <input type="text" id="documentTitle" value="Título do Documento">
+                </div>
+                
+                <div class="form-group">
+                    <label for="documentContent">Conteúdo:</label>
+                    <textarea id="documentContent">Este é um documento de exemplo gerado com o nosso gerador de PDF. Você pode personalizar este conteúdo conforme necessário.</textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pageSize">Tamanho da Página:</label>
+                        <select id="pageSize">
+                            <option value="a4" selected>A4</option>
+                            <option value="letter">Carta</option>
+                            <option value="legal">Ofício</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orientation">Orientação:</label>
+                        <select id="orientation">
+                            <option value="p" selected>Retrato</option>
+                            <option value="l">Paisagem</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fileName">Nome do Arquivo:</label>
+                    <input type="text" id="fileName" value="documento">
+                </div>
+                
+                <div class="form-group">
+                    <label for="includeDate">
+                        <input type="checkbox" id="includeDate" checked>
+                        Incluir data no documento
+                    </label>
+                </div>
+                
+                <button id="generatePdfBtn" class="btn-primary">Gerar PDF</button>
+            </section>
+
+            <section class="preview-panel">
+                <h2>Visualização</h2>
+                <div id="contentPreview" class="preview-container">
+                    <div class="preview-content">
+                        <h2 id="previewTitle">Título do Documento</h2>
+                        <div id="previewDate" class="date">Data: <span></span></div>
+                        <div id="previewContent" class="content">
+                            <p>Este é um documento de exemplo gerado com o nosso gerador de PDF. Você pode personalizar este conteúdo conforme necessário.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <div id="notification" class="notification">PDF gerado com sucesso!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
