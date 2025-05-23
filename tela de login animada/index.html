@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login & Register</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Sign-In API -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-box login-form active" id="loginForm">
+            <h2>Login</h2>
+            <form>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" required placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" required placeholder="Password">
+                </div>
+                <div class="remember-forgot">
+                    <div class="remember">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot">Forgot Password?</a>
+                </div>
+                <button type="submit">Login</button>
+                <!-- Google Sign-In Button -->
+                <div class="google-signin-container">
+                    <p>Or login with</p>
+                    <div id="g_id_onload"
+                         data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                         data-context="signin"
+                         data-ux_mode="popup"
+                         data-callback="handleGoogleSignIn"
+                         data-auto_select="false"
+                         data-itp_support="true">
+                    </div>
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="rectangular"
+                         data-theme="outline"
+                         data-text="signin_with"
+                         data-size="large"
+                         data-logo_alignment="center"
+                         data-width="280">
+                    </div>
+                </div>
+                <div class="register-text">
+                    <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-box register-form" id="registerForm">
+            <h2>Create Account</h2>
+            <form>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" required placeholder="Full Name">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" required placeholder="Email">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" required id="password" placeholder="Password">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-key"></i>
+                    <input type="password" required id="confirmPassword" placeholder="Confirm Password">
+                </div>
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                <button type="submit">Register</button>
+                
+                <!-- Google Sign-Up Button -->
+                <div class="google-signin-container">
+                    <p>Or register with</p>
+                    <div id="g_id_onload"
+                         data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                         data-context="signup"
+                         data-ux_mode="popup"
+                         data-callback="handleGoogleSignUp"
+                         data-auto_select="false"
+                         data-itp_support="true">
+                    </div>
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="rectangular"
+                         data-theme="outline"
+                         data-text="signup_with"
+                         data-size="large"
+                         data-logo_alignment="center"
+                         data-width="280">
+                    </div>
+                </div>
+                
+                <div class="login-text">
+                    <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Password Manager Section (Hidden by default) -->
+        <div class="form-box password-manager" id="passwordManager">
+            <h2>Password Manager</h2>
+            <div class="welcome-section">
+                <p>Welcome, <span id="userName">User</span>!</p>
+            </div>
+            <div class="password-list-container">
+                <h3>Your Saved Passwords</h3>
+                <div class="password-list" id="passwordList">
+                    <!-- Passwords will be loaded here -->
+                </div>
+                <button id="addPasswordBtn" class="secondary-btn">Add New Password</button>
+            </div>
+            <div class="add-password-form" id="addPasswordForm" style="display:none;">
+                <h3>Add New Password</h3>
+                <div class="input-group">
+                    <i class="fas fa-globe"></i>
+                    <input type="text" id="newSite" required placeholder="Website URL">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="newUsername" required placeholder="Username/Email">
+                </div>
+                <div class="input-group password-input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="newPassword" required placeholder="Password">
+                    <i class="fas fa-eye toggle-password"></i>
+                </div>
+                <div class="btn-group">
+                    <button type="button" id="savePasswordBtn">Save</button>
+                    <button type="button" id="cancelAddBtn" class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+            <div class="logout-section">
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+        
+        <div class="bubbles">
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:23"></span>
+            <span style="--i:18"></span>
+            <span style="--i:16"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:22"></span>
+            <span style="--i:25"></span>
+            <span style="--i:18"></span>
+            <span style="--i:21"></span>
+            <span style="--i:15"></span>
+            <span style="--i:13"></span>
+            <span style="--i:26"></span>
+            <span style="--i:17"></span>
+            <span style="--i:13"></span>
+            <span style="--i:28"></span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
